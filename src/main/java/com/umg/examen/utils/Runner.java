@@ -35,14 +35,23 @@ public class Runner implements CommandLineRunner {
                 new Authority(AuthorityName.ROLE_USER),
                 new Authority(AuthorityName.ROLE_ADMIN)
         ));
-        User user = new User("admin",
-                new BCryptPasswordEncoder().encode("password"),
-                List.of(
-                        this.authorityRepository.findByName(
-                                AuthorityName.ADMIN
+        this.userRepository.saveAll(List.of(
+                new User("el_inge",
+                        new BCryptPasswordEncoder().encode("pass123"),
+                        List.of(
+                                this.authorityRepository.findByName(
+                                        AuthorityName.ROLE_ADMIN
+                                )
+                        )
+                ),
+                new User("el_estudiante",
+                        new BCryptPasswordEncoder().encode("pass123"),
+                        List.of(
+                                this.authorityRepository.findByName(
+                                        AuthorityName.ROLE_USER
+                                )
                         )
                 )
-        );
-        this.userRepository.save(user);
+        ));
     }
 }
