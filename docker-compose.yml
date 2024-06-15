@@ -4,8 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        ENV_FILE: my_env_file # Puedes ajustar esto según sea necesario
     ports:
       - "8080:8080"
     environment:
