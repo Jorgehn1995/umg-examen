@@ -39,7 +39,7 @@ public class Runner implements CommandLineRunner {
                 new BCryptPasswordEncoder().encode("password"),
                 List.of(
                         this.authorityRepository.findByName(
-                                AuthorityName.ROLE_ADMIN
+                                AuthorityName.ADMIN
                         )
                 )
         );
